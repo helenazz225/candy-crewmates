@@ -41,7 +41,7 @@ GIF created with [Kap](https://getkap.co/) for macOS
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I had some challenges figuring out how to transfer data about each crewmate to the page where you view details about the crewmate and then to the form to edit the crewmate info. I ended up just passing along the crewmate data in the url and using useParams to fetch data about that crewmate from the database. Not sure if it was the most efficient solution.
 
 ## License
 
