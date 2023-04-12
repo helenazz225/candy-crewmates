@@ -7,7 +7,7 @@ const CrewmateGallery = () => {
     const [crew, setCrew] = useState([])
     useEffect(() => {
         const fetchData = async () => {
-            const {data} = await supabase.from('Posts').select().order('created_at', {ascending: true})
+            const {data} = await supabase.from('Posts').select().order('created_at', {ascending: false})
             // console.log(data)
             setCrew(data)
             // console.log
@@ -15,11 +15,16 @@ const CrewmateGallery = () => {
         fetchData()
         // console.log(crew)
     })
+    let sum = 0
+    crew && crew.map(entry => {
+        sum += entry.power
+    })
     return (
         <div className="App">
             <Sidebar/>
             <div className="main">
                 <h1 id="gallery-header">Crew Gallery</h1>
+                <h5>Total power: {sum}</h5>
                 <div id='gallery-main'>{crew && crew.map(entry => {
                     return (
                         <div className={`card ` + entry.color}>
